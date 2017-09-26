@@ -50,14 +50,12 @@ end
 
 def organize_schools (array)
   location_hash = {}
-  array.each do |school_array|
-    schools.each do |school, school_info|
-      school_info.each do |location_key, location|
-        if !location_hash[location]
-          location_hash[location] = [school]
-        elsif !location_hash[location].include?(school)
-          location_hash[location].push(school)
-        end
+  array.each do |school, school_info|
+    school_info.each do |location_key, location|
+      if !location_hash[location]
+        location_hash[location] = [school]
+      elsif !location_hash[location].include?(school)
+        location_hash[location].push(school)
       end
     end
   end
